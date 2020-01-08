@@ -27,6 +27,22 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-prismic-graphql`,
+      options: {
+        repositoryName: "oneomecom",
+        // accessToken: "cd8e7f3e22f03a14c1082fc3f1b8c460",
+        previews: true,
+        pages: [
+          {
+            type: "Generic_page",
+            match: "/page/:uid",
+            path: "/page",
+            component: require.resolve("./src/components/genericPage.js"),
+          },
+        ],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
